@@ -1,0 +1,29 @@
+# Lpz_challenge1
+
+#include <iostream>
+using namespace std;
+int main(){
+	int size1;
+	cout<<"Enter the size of array: ";
+	cin>>size1;
+	int arr[size1];
+	cout<<"Enter the array: ";
+	for(int i=0;i<size1;i++){
+		cin>>arr[i];
+	}
+	int found=0;
+	for(int i=0;i<size1;i++){
+		for(int j=0;j<size1;j++){
+			for(int z=0;z<size1;z++){
+				if(arr[i]+arr[j]+arr[z]==0)
+				found=1;
+			}
+		}
+	}
+	if(found==0){
+		cout<<"0";
+	}
+	else
+		cout<<"1";
+	return 0;	
+}
