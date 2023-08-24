@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+struct node{
+    int data;
+    struct node* next;
+    
+};
+struct node* head=NULL;
+void insert(int val){
+    struct node* newdata= new node;
+    newdata->data=val;
+    newdata->next=head;
+    head=newdata;
+}
+
+void sort(){
+    struct node *ptr=head;
+    while(ptr!=NULL){
+        struct node*nextptr=ptr->next;
+    while(nextptr!=NULL){
+        if(ptr->data>nextptr->data){
+            int temp;
+            temp=ptr->data;
+            ptr->data=nextptr->data;
+            nextptr->data=temp;
+        }
+        nextptr=nextptr->next;
+        
+    }
+    ptr=ptr->next;
+}
+}
+void show(){
+    struct node* ptr=head;
+    while(ptr!=NULL){
+        cout<<ptr->data<<" ";
+        ptr=ptr->next;
+        
+    }
+
+
+}
+int main (){
+    int size;
+    cout<<"Enter the size of linked list: ";
+    cin>>size;
+    cout<<"\n";
+    cout<<"Enter the elements of linked list: ";
+    int value;
+    for(int i=1;i<size+1;i++){
+        cin>>value;
+        insert(value);
+    }
+    sort();
+    cout<<"\n";
+    cout<<"After sorting: ";
+    show();
+    return 0;
+
+}
